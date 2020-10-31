@@ -1,1 +1,1 @@
-print('ok');
+print('ok', 'hello', 'world', sep='|(≧▽≦)|');
