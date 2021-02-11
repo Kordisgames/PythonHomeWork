@@ -1,0 +1,18 @@
+Создание запроса
+Импортируйте модуль Requests:
+
+import requests 
+Попробуем получить веб-страницу. В этом примере давайте рассмотрим общий тайм-лайн GitHub:
+
+r = requests.get('https://api.github.com/events')  
+Мы получили объект Response с именем r. С помощью этого объекта можно получить всю необходимую информацию.
+
+Простой API Requests означает, что все формы HTTP запросов- очевидны. Ниже приведен пример того, как вы можете сделать запрос HTTP POST:
+
+r = requests.post('https://httpbin.org/post', data = {'key':'value'})  
+Другие типы HTTP запросов такие как : PUT, DELETE, HEAD и OPTIONS так же очень легко выполнить:
+
+r = requests.put('https://httpbin.org/put', data = {'key':'value'})  
+r = requests.delete('https://httpbin.org/delete')  
+r = requests.head('https://httpbin.org/get')  
+r = requests.options('https://httpbin.org/get')  

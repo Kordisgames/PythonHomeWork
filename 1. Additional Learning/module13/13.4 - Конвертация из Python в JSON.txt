@@ -1,0 +1,53 @@
+Если у вас есть объект Python, вы можете преобразовать его в строку JSON с помощью метода json.dumps().
+
+import json
+
+# создаем словарь x:
+x = {
+"name": "Viktor",
+"age": 30,
+"city": "Minsk"
+}
+# конвертируем в JSON: 
+y = json.dumps(x)
+# в результате получаем строк JSON:
+print(y)
+Вывод:
+
+{"name": "Viktor", "age": 30, "city": "Minsk"}
+Вы можете преобразовать следующие типов объекты Python в строки JSON:
+
+dict
+list
+tuple
+string
+int
+float
+True
+False
+None
+Конвертируем объекты Python в строки JSON и выведите значения:
+
+import json
+  
+print(json.dumps({"name": "Viktor", "age":  30}))
+print(json.dumps(["Porsche", "BMW"]))
+print(json.dumps(("Porsche", "BMW")))
+print(json.dumps("hello"))
+print(json.dumps(42))
+print(json.dumps(31.76))
+print(json.dumps(True))
+print(json.dumps(False))
+print(json.dumps(None))
+
+Вывод:
+
+{"name": "Viktor", "age": 30}
+["Porsche", "BMW"]
+["Porsche", "BMW"]
+"hello"
+42
+31.76
+true
+false
+null

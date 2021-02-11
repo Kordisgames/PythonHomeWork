@@ -1,0 +1,27 @@
+Класс json.JSONDecoder(object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None) - простой декодер JSON.
+
+Выполняет следующие преобразования при декодировании:
+
+JSON	Python
+object					dict
+array						list
+string					str
+number (int)		int
+number (real)		float
+true						True
+false						False
+null						None
+Он также понимает NaN, Infinity, и -Infinity как соответствующие значения float, которые находятся за пределами спецификации JSON.
+
+Класс json.JSONEncoder(skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)
+
+Расширяемый кодировщик JSON для структур данных Python. Поддерживает следующие объекты и типы данных по умолчанию:
+
+Python	JSON
+dict	            	object
+list, tuple	      	array
+str									string
+int, float					number
+True								true
+False								false
+None								null

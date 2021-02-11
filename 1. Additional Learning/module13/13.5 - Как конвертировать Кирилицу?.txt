@@ -1,0 +1,16 @@
+Если в данных Python есть символы кириллицы, метод json.dumps() преобразует их с кодировкой по умолчанию. Что бы сохранить кириллицу используйте параметр ensure_ascii=False
+
+import json
+
+x = {
+"name": "Виктор"
+}
+y = {
+"name": "Виктор"
+}
+print(json.dumps(x))
+print(json.dumps(y, ensure_ascii=False))
+Вывод:
+
+{"name": "\u0412\u0438\u043a\u0442\u043e\u0440"}
+{"name": "Виктор"}

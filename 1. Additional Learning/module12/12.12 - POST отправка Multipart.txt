@@ -1,0 +1,46 @@
+POST отправка Multipart-Encoded файла
+Запросы упрощают загрузку файлов с многостраничным кодированием (Multipart-Encoded) :
+
+>>> url = 'https://httpbin.org/post'  
+>>> files = {'file': open('report.xls', 'rb')}  
+>>> r = requests.post(url, files=files)  
+>>> r.text  
+{  
+	...  
+	"files": {  
+	  "file": "<censored...binary...data>"  
+	},  
+	...  
+}  
+Вы можете установить имя файла, content_type и заголовки в явном виде:
+
+>>> url = 'https://httpbin.org/post'  
+>>> files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}  
+>>> r = requests.post(url, files=files)  
+>>> r.text  
+{  
+	...  
+	"files": {  
+	  "file": "<censored...binary...data>"  
+	},  
+	...  
+}  
+Можете отправить строки, которые будут приняты в виде файлов:
+
+>>> url = 'https://httpbin.org/post'  
+>>> files = {'file': ('report.csv', 'some,data,to,send\nanother,row,to,send\n')}  
+>>> r = requests.post(url, files=files)  
+>>> r.text  
+{  
+	...  
+	"files": {  
+	  "file": "some,data,to,send\\nanother,row,to,send\\n"  
+	},  
+	...  
+}
+В случае, если вы отправляете очень большой файл как запрос multipart/form-data, возможно понадобиться отправить запрос потоком. По умолчанию, requests не поддерживает этого, но есть отдельный пакет, который это делает — requests-toolbelt. Ознакомьтесь с документацией toolbelt для получения более детальной информации о том, как им пользоваться.
+
+Для отправки нескольких файлов в одном запросе, обратитесь к расширенной документации (EN).
+
+Предупреждение!
+Настоятельно рекомендуется открывать файлы в бинарном режиме. Это связано с тем, что запросы могут пытаться предоставить для вас заголовок Content-Length, и если это значение будет установлено на количество байтов в файле будут возникать ошибки, при открытии файла в текстовом режиме.

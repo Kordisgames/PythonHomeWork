@@ -1,0 +1,22 @@
+Мы можем просматривать заголовки ответа сервера, используя словарь Python:
+
+>>> r.headers  
+>
+{  
+	'content-encoding': 'gzip',  
+	'transfer-encoding': 'chunked',  
+	'connection': 'close',  
+	'server': 'nginx/1.0.4',  
+	'x-runtime': '148ms',  
+	'etag': '"e1ca502697e5c9317743dc078f67693f"',  
+	'content-type': 'application/json'  
+}  
+Это словарь особого рода, он создан специально для HTTP заголовков. Согласно с RFC 7230, имена заголовков HTTP нечувствительны к регистру:
+Теперь мы можем получить доступ к заголовкам с большми буквами или без, если захотим:
+
+>>> r.headers['Content-Type']  
+
+'application/json'  
+>>> r.headers.get('content-type')  
+
+'application/json'  

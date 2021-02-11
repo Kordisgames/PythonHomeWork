@@ -1,0 +1,48 @@
+Часто вы хотите послать некоторые form-encoded данные таким же образом, как это делается в HTML форме. Для этого просто передайте соответствующий словарь в аргументе data. Ваш словарь данных в таком случае будет автоматически закодирован как HTML форма, когда будет сделан запрос:
+
+>>> payload = {'key1': 'value1', 'key2': 'value2'}  
+>>> r = requests.post("https://httpbin.org/post", data=payload)  
+>>> print(r.text)  
+{  
+	...  
+	"form": {  
+	  "key2": "value2",  
+	  "key1": "value1"  
+	},  
+	...  
+}  
+Аргумент data также может иметь несколько значений для каждого ключа. Это можно сделать, указав data в формате tuple, либо в виде словаря со списками в качестве значений. Особенно полезно, когда форма имеет несколько элементов, которые используют один и тот же ключ:
+
+>>> payload_tuples = [('key1', 'value1'), ('key1', 'value2')]  
+>>> r1 = requests.post('https://httpbin.org/post', data=payload_tuples)  
+>>> payload_dict = {'key1': ['value1', 'value2']}  
+>>> r2 = requests.post('https://httpbin.org/post', data=payload_dict)  
+>>> print(r1.text)  
+{  
+	...  
+	"form": {  
+	  "key1": [  
+		"value1",  
+		"value2"  
+	  ]  
+	},  
+	...  
+}  
+>>> r1.text == r2.text  
+True  
+Бывают случаи, когда нужно отправить данные не закодированные методом form-encoded. Если вы передадите в запрос строку вместо словаря, эти данные отправятся в не измененном виде.
+
+Профессия Data‌ ‌ScientistПрофессия Data‌ ‌ScientistПрофессия Data‌ ‌ScientistПрофессия Data‌ ‌Scientist
+К примеру, GitHub API v3 принимает закодированные JSON POST/PATCH данные:
+
+import json  
+url = 'https://api.github.com/some/endpoint'  
+payload = {'some': 'data'}  
+r = requests.post(url, data=json.dumps(payload))  
+Вместо того, чтобы кодировать dict, вы можете передать его напрямую, используя параметр json (добавленный в версии 2.4.2), и он будет автоматически закодирован:
+
+url = 'https://api.github.com/some/endpoint'  
+payload = {'some': 'data'}  
+r = requests.post(url, json=payload)  
+Обратите внимание, параметр json игнорируется, если передаются data или files.
+Использование параметра json в запросе изменит заголовок Content-Type на application/json.

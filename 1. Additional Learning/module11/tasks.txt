@@ -1,0 +1,54 @@
+------=====================Задача 1 (1/10)=======================------
+Извлеките никнейм пользователя, имя домена и суффикс из данных email адресов.
+<<< Формат ввода
+emails = """zuck26@facebook.com  
+page33@google.com  
+jeff42@amazon.com""" 
+
+>>> Вывод программы
+[
+('zuck26', 'facebook', 'com'), 
+('page33', 'google', 'com'), 
+('jeff42', 'amazon', 'com')
+]
+
+Ответ на задачу: https://regex101.com/r/VCqcE0/1
+------=====================Задача 2 (1/10)=======================------
+Извлеките все слова, начинающиеся с ‘b’ или ‘B’ из данного текста.
+
+<<< Формат ввода:
+text = """Betty bought a bit of butter, But the butter was so bitter, So she bought some better butter, To make the bitter butter better."""
+
+>>> Вывод программы
+--- Только слова на букву b или B
+------=====================Задача 3 (1/10)=======================------
+Уберите все символы пунктуации из предложения
+
+<<< Формат ввода:
+sentence = """A, very very; irregular_sentence"""  
+
+>>> Вывод программы
+--- Предложение без знаков пунктуации
+------=====================Задача 4 (1/10)=======================------
+Очистите следующий твит, чтобы он содержал только одно сообщение пользователя. То есть, удалите все URL, хэштеги, упоминания, пунктуацию, RT и CC.
+
+tweet = '''Good advice! RT @TheNextWeb: What I would do differently if I was learning to code today https://t.co/lbwej0pxOd cc: @garybernhardt #rstats'''  
+
+# требуеый вывод
+'Good advice What I would do differently if I was learning to code today'
+------=====================Задача 5 (1/10)=======================------
+Извлеките все текстовые фрагменты между тегами с HTML страницы: https://raw.githubusercontent.com/selva86/datasets/master/sample.html
+Код для извлечения HTML страницы:
+
+import requests  
+r = requests.get("https://raw.githubusercontent.com/selva86/datasets/master/sample.html")  
+r.text # здесь хранится html
+
+# требуеый вывод
+['Your Title Here', 'Link Name', 'This is a Header', 'This is a Medium Header', 'This is a new paragraph! ', 'This is a another paragraph!', 'This is a new sentence without a paragraph break, in bold italics.']
+
+------=====================Задача 6 (1/10)=======================------
+------=====================Задача 7 (1/10)=======================------
+------=====================Задача 8 (1/10)=======================------
+------=====================Задача 9 (1/10)=======================------
+------=====================Задача 10 (1/10)=======================------

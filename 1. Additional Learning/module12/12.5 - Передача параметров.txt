@@ -1,0 +1,19 @@
+Передача параметров в URL (Это называется GET-параметрами, они видны в адресной строке пользователю)
+Часто вам может понадобится отправить какие-то данные в строке запроса URL. Если вы настраиваете URL вручную, эти данные будут представлены в нем в виде пар ключ/значение после знака вопроса. Например, httpbin.org/get?key=val. Requests позволяет передать эти аргументы в качестве словаря, используя аргумент params. Если вы хотите передать key1=value1 и key2=value2 ресурсу httpbin.org/get, вы должны использовать следующий код:
+
+payload = {'key1': 'value1', 'key2': 'value2'}  
+r = requests.get('https://httpbin.org/get', params=payload)  
+Как видно, URL был закодирован правильно:
+
+>>> print(r.url)  
+
+http://httpbin.org/get?key2=value2&key1=value1
+
+Ключ словаря, значение которого None не будет добавлен в строке запроса URL.
+Вы можете передать список параметров в качестве значения:
+
+>>> payload = {'key1': 'value1', 'key2': ['value2', 'value3']}  
+>>> r = requests.get('https://httpbin.org/get', params=payload)  
+>>> print(r.url)  
+
+http://httpbin.org/get?key1=value1&key2=value2&key2=value3  
