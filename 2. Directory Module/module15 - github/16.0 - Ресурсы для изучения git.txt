@@ -1,0 +1,2 @@
+Работа с .gitignore - https://tyapk.ru/blog/post/gitignore
+Руководство по git - https://tyapk.ru/blog/post/learning-git
