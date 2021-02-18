@@ -16,7 +16,7 @@ POST отправка Multipart-Encoded файла
 
 >>> url = 'https://httpbin.org/post'  
 >>> files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}  
->>> r = requests.post(url, files=files)  
+>>> r = requests.post(url, files=files)
 >>> r.text  
 {  
 	...  

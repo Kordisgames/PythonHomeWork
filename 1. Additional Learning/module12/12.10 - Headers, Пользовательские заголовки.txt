@@ -2,7 +2,7 @@
 Например, мы не указали наш user-agent в предыдущем примере:
 
 url = 'https://api.github.com/some/endpoint'  
-headers = {'user-agent': 'my-app/0.0.1'}  
+headers = {'x-rapidapi-key': 'my-app/0.0.1'}  
 r = requests.get(url, headers=headers)  
 Заголовкам дается меньший приоритет, чем более конкретным источникам информации. Например:
 

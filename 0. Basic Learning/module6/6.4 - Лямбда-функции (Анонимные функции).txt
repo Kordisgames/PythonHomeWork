@@ -39,6 +39,7 @@ def traditionalSqr(x):
     return x**2
 
 lambdaSqr = lambda x: x**2
+
 print(traditionalSqr(3))
 print(lambdaSqr(3))
 
